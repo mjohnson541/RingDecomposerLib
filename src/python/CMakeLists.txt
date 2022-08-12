@@ -18,5 +18,6 @@ if (PYTHON AND BUILD_PYTHON_WRAPPER)
   add_custom_target(PYTHON_BUILD_TARGET ALL DEPENDS "${OUTPUT}")
 
   add_custom_command(TARGET PYTHON_BUILD_TARGET POST_BUILD
-                     COMMAND "${PYTHON}" "${SETUP_PY}" install ${PYTHON_FLAGS} "$<TARGET_FILE:RingDecomposerLibStatic>")
+                     COMMAND "${PYTHON}" "${SETUP_PY}" install ${PYTHON_FLAGS} --single-version-externally-managed --record=record.txt
+ "$<TARGET_FILE:RingDecomposerLibStatic>")
 endif()
